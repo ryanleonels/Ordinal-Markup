@@ -277,10 +277,10 @@ function calcIncrementyMult(i = game.incrementy) {
 function calcFactorBoostTime() {
   let fbt = 0;
   let bfact = 1;
+  let tier2FS = 7;
   for (let i = 1; i < 9; i++) {
     fbt += calcFactorShiftTime(i);
     if (i !== 8)
-      tier2FS = 7;
       bfact *=
         (([9, 8, 7, 7, 6, 6, 6][i - 1] +
           1 +
