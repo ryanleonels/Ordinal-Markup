@@ -234,7 +234,8 @@ function calcFactorShiftTime(n) {
       (calcBase(n-1)==3?3**27:OPtoOrd(getFSCost(n-1),calcBase(n-1))) /
         (calcTotalMultWOFactor() *
           ((game.upgrades.includes(1) && game.omegaChallenge != 2 ? double() : 1) *
-            (1 + (game.upgrades.includes(11) ? 3 : 0))) **
+            (1 + (game.upgrades.includes(11) ? 3 : 0)) *
+        (Math.max(1+(n-1)/10, 1)**[1, 1, 1, 1, 1.3, 1.9, 2.2, 2.3, 2.4][n])) **
             (n - 1)),getFSCost(n-1)/calcOPPS(n - 1))
   );
 }
@@ -279,11 +280,13 @@ function calcFactorBoostTime() {
   for (let i = 1; i < 9; i++) {
     fbt += calcFactorShiftTime(i);
     if (i !== 8)
+      tier2FS = 7;
       bfact *=
-        (([9, 8, 7, 4, 4, 3, 2][i - 1] +
+        (([9, 8, 7, 7, 6, 6, 6][i - 1] +
           1 +
           (game.upgrades.includes(11) ? 3 : 0)) *
-          (game.upgrades.includes(1) && game.omegaChallenge != 2 ? double() : 1)) **
+          (game.upgrades.includes(1) && game.omegaChallenge != 2 ? double() : 1) *
+        (Math.max(1+(tier2FS-i)/10, 1)**[1, 1, 1, 1, 1.3, 1.9, 2.2, 2.3, 2.4][tier2FS])) **
         [0, 0.5, 0.75, 1][game.challengeCompletion[i - 1]];
     if (i === 8)
       bfact *= getDynamicFactorCap() ** getChalCurve([game.chal8Comp]);

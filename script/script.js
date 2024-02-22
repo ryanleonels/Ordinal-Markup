@@ -29,11 +29,11 @@ const factorShiftCosts = [
   350000,
   1e12,
   1e21,
-  1e100,
+  5e100,
   1.095e272,
   Infinity
 ];
-const factorCostExp = [2, 2, 2, 3, 3, 6, 30, 100];
+const factorCostExp = [2, 2, 2, 2, 2, 2, 2, 2];
 const bupUpgradeCosts = [
   1,1,1,12,
   5,4,8,36,
@@ -49,7 +49,7 @@ const challengeGoals = [
   [1e32, 1e223, 5e270,Infinity],
   [5e270, V(10) + 1e270, V(17) + 1e270,Infinity],
   [1e200, 1e214, 1e256,Infinity],
-  [1e33, 5e113, 1.5e119,Infinity],
+  [1e32, 5e113, 1.5e119,Infinity],
   [1e122, 3.33e136, 1e219,Infinity],
   [1.02e33, 1e44, 4.75e108,Infinity],
   [1.05e13, 4.18e18, 1.02e20,Infinity],
@@ -677,7 +677,8 @@ function render() {
           (game.upgrades.includes(11)
             ? 3 * (inChal(3) && game.omegaChallenge != 2? double() : 1)
             : 0)) *
-        (game.upgrades.includes(1) && game.omegaChallenge != 2 ? double() : 1);
+        (game.upgrades.includes(1) && game.omegaChallenge != 2 ? double() : 1) *
+        (Math.max(1+(game.factorShifts-factorListCounter-1)/10, 1)**[1, 1, 1, 1, 1.3, 1.9, 2.2, 2.3, 2.4][game.factorShifts]);
     }
   }
   if (game.omegaChallenge==1) factorMult=1
@@ -805,7 +806,8 @@ function render() {
         (game.factors.length >= i + 1
           ? game.factors[i] + (game.upgrades.includes(11) ? 3 : 0)
           : 0)) *
-        (game.upgrades.includes(1) && game.factors.length >= i + 1  && game.omegaChallenge != 2? double() : 1)) **
+        (game.upgrades.includes(1) && game.factors.length >= i + 1  && game.omegaChallenge != 2? double() : 1) *
+        (Math.max(1+(game.factorShifts-i-1)/10, 1)**[1, 1, 1, 1, 1.3, 1.9, 2.2, 2.3, 2.4][game.factorShifts])) **
       (game.leastBoost <= 20 && game.challengeCompletion[i] == 0
         ? 0.25
         : challengeCurve[game.challengeCompletion[i]]);
@@ -1511,7 +1513,8 @@ function updateFactors() {
             ? 3 * (inChal(3) && game.omegaChallenge != 2 ? double() : 1) // uhhhhh what do i do now (bruh)
             : 0) + //It applies automatically in challenge 7
           game.factors[factorListCounter]) *
-          (game.upgrades.includes(1) && game.omegaChallenge != 2 ? double() : 1)) +
+          (game.upgrades.includes(1) && game.omegaChallenge != 2 ? double() : 1) *
+        (Math.max(1+(game.factorShifts-factorListCounter-1)/10, 1)**[1, 1, 1, 1, 1.3, 1.9, 2.2, 2.3, 2.4][game.factorShifts])) +
         ' <button onclick="buyFactor(' +
         factorListCounter +
         `)" class="infinityButton">${cost === Infinity
@@ -1915,7 +1918,7 @@ function resetConf() {
 function maxFactors() {
   if (!inChal(2)) {
     if (game.factors.length >= 7 && game.OP >= 1e257) {
-      game.factors = [9, 8, 7, 4, 4, 3, 2];
+      game.factors = [9, 8, 7, 7, 6, 6, 6];
     } else {
       for (let i = 0; i < game.factors.length; i++)
         while (
@@ -1953,7 +1956,7 @@ function debug() {
   game.factorShifts = 7;
   game.base = 3;
   game.manualClicksLeft = 1000;
-  game.factors = [9, 8, 7, 4, 4, 3, 2];
+  game.factors = [9, 8, 7, 7, 6, 6, 6];
   game.infUnlock = 1;
   game.dynamic = 1;
   game.challenge = 0;
@@ -1974,7 +1977,7 @@ function revertToPreBooster() {
   game.factorShifts = 7;
   game.manualClicksLeft = 1000;
   game.base = 3;
-  game.factors = [9, 8, 7, 4, 4, 3, 2];
+  game.factors = [9, 8, 7, 7, 6, 6, 6];
   game.infUnlock = 1;
   game.dynamic = 1;
   game.challenge = 0;
