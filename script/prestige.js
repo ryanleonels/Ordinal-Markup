@@ -191,7 +191,7 @@ function resetEverythingCollapseDoes() {
   game.reachedBHO = 0;
   if (game.leastBoost >= 1.5) {
   game.manifolds = 0;
-  game.iups = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  game.iups = [EN(0), EN(0), EN(0), 0, 0, 0, 0, 0, 0];
   game.dups = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   game.darkManifolds = 0;
   }
