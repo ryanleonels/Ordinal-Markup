@@ -39,8 +39,8 @@ const bupUpgradeCosts = [
   5,4,8,36,
   72,73,16,91,
   53,74,66,324,
-  Infinity,Infinity,8e8,1e11,
-  Infinity,Infinity,2e19,1e21
+  Infinity,Infinity,6e6,1e7,
+  Infinity,Infinity,2e14,1e16
 ];
 const slugMile = [1e10, 20, 15, 12, 10, 1, -1];
 let totalMult = 1;
@@ -50,7 +50,7 @@ const challengeGoals = [
   [5e270, V(10) + 1e270, V(17) + 1e270,Infinity],
   [1e200, 1e214, 1e256,Infinity],
   [1e32, 5e113, 1.5e119,Infinity],
-  [1e122, 3.33e136, 1e219,Infinity],
+  [1e120, 3e130, 1e210,Infinity],
   [1.02e33, 1e44, 4.75e108,Infinity],
   [1.05e13, 4.18e18, 1.02e20,Infinity],
   [3.0e10, 6.0e10, 2.4e11, Infinity],
@@ -63,11 +63,11 @@ let cardinalLoop = ExpantaNum(0);
 /* eslint-disable */
 let collapseAnimation = 0;
 /* eslint-enable */
-const iupCosts = [1e5, 1e3, 1e9, 5e15, 2e22, 4e23, 1e19, 1e25, 1e27];
+const iupCosts = [1e5, 1e3, 1e9, 5e12, 2e19, 4e20, 1e15, 1e21, 1e22];
 const dupCosts = [
-  5,
-  1000,
-  9,
+  3,
+  100,
+  6,
   Infinity,
   Infinity,
   Infinity,
