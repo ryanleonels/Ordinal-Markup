@@ -33,7 +33,7 @@ const achieveData = [
       "Reach the ordinal Ψ(Ω)",
       "Reach the ordinal Ψ(Ω^Ω^2)",
       "Reach the ordinal Ψ(Ω^(Ω^2×2))",
-      "Reach the ordinal Ψ(Ω^Ω^Ω)=LVO",
+      "Reach the ordinal Ψ(Ω^Ω^Ω)=BHO",
       "Exceed the BHO limit",
       "Reach the ordinal Ψ(ε(Ω2)^Ω^2)",
     ]
@@ -358,11 +358,11 @@ const achieveData = [
       () => game.incrementy.gte("ee10"),
       () => game.incrementy.gte("eee10"),
       () => game.incrementy.gte(tenTetrTen),
-      () => false,
-      () => false,
-      () => false,
-      () => false,
-      () => false
+      () => game.incrementy.gte(EN(10).pent(10)),
+      () => game.incrementy.gte(EN.arrow(10,10,10)),
+      () => game.incrementy.gte(EN.arrow(10,100,10)),
+      () => game.incrementy.gte(EN.arrow(10,EN.pow(2,1024),10)),
+      () => game.incrementy.gte(EN.arrow(10,EN.arrow(10,10,10),10))
     ],
     name: [
       "Welcome to the E",
@@ -370,11 +370,11 @@ const achieveData = [
       "Double Exponential!",
       "Triple Exponential!!!",
       "R.I.P. balancing",
-      "Way too much",
-      "Way too much",
-      "Way too much",
-      "Way too much",
-      "Way too much",
+      "Pentagon",
+      "10 dimensional arrow",
+      "A boogol incrementy",
+      "Infinty was passed for the infinite time",
+      "Well, it's still nothing compared to the number in the top left",
     ],
     tooltip: [
       "Enter the Incrementyverse",
@@ -382,11 +382,11 @@ const achieveData = [
       "Reach ee10 Incrementy",
       "Reach eee10 Incrementy",
       "Reach 10^^10 Incrementy",
-      "Reach Too Many Incrementy",
-      "Reach Too Many Incrementy",
-      "Reach Too Many Incrementy",
-      "Reach Too Many Incrementy",
-      "Reach Too Many Incrementy"
+      "Reach 10^^^10 Incrementy",
+      "Reach 10{10}10 Incrementy",
+      "Reach 10{100}10 Incrementy",
+      "Reach 10{1.8e308}10 Incrementy",
+      "Reach 10{10{10}10}10 Incrementy"
     ]
   }
 ]
