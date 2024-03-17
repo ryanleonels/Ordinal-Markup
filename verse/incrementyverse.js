@@ -415,7 +415,7 @@ function realDisplayHugeOrd(x,layer=0) {
     }
     if (x.lt(EN.hyper(arrowLevel+3)(3,zOrd))) zOrd--
     zOrd++
-    zOrd = EN(zOrd).div(3).floor().mul(3)
+    zOrd = EN(zOrd).div(3).floor().mul(3).add(1)
     if (game.buchholz == 0) return `φ<sub>${realDisplayHugeOrd(EN(arrowLevel),nly)}</sub>(${realDisplayHugeOrd(zOrd,nly)})`
     return (game.buchholz==2) ? `Ω<sub>2</sub>^(${realDisplayHugeOrd(EN(arrowLevel),nly)})×(${realDisplayHugeOrd(zOrd.sub(3),nly)})`:`Ω<sub>2</sub><sup>${realDisplayHugeOrd(EN(arrowLevel),nly)}</sup>(${realDisplayHugeOrd(zOrd.sub(3),nly)})`
     //ζ

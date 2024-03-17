@@ -539,14 +539,17 @@ function render() {
           game.colors
         );
   let date=Date.now()/100
+  let hardyValue = beautifyEN(hardy(game.ord, game.base, game.over));
+  if (hardyValue === "Infinity") hardyValue = bigHardy(game.ord, game.base, game.over); // approximating hardyValue above ExpantaNum limit using Bird's Array Notation
+  if (hardyValue.length > 64) hardyValue = hardyValue.substring(0,64) + "...";
   get("hardy").innerHTML =
     `${colorWrap("H", (game.colors === 2?HSL(date):ordColor))}<sub>${(game.colors === 2?colorWrap(ordSub,HSL(date)):ordSub)}</sub><text class="invisible">l</text>${colorWrap(
-      `(${game.base})${(game.ord >= game.base ** 3 ||
-        outSize >= 10 ** 264 || getFBps()/getFBmult() >= 10
+      `(${game.base})${(hardyValue == "Infinity" ||
+        game.ord >= Infinity || getFBps()/getFBmult() >= 10
           ? getFBps()/getFBmult() >= 10
             ? `=${game.base}`
             : ""
-          : `=${beautifyEN(outSize)}`)}`,
+          : `=${hardyValue}`)}`,
       (game.colors === 2?HSL(date):ordColor)
     )}`
   game.canInf =
@@ -1807,6 +1810,14 @@ function beautify(number, f = 0) {
 
 function beautifyEN(n, f = 0) {
   let x = EN(n);
+  if (x.isNaN()) return "NaN"
+  if (!x.isFinite()) return "Infinity"
+  if (x.layer > 1) {
+    return `10{{1}}${x.layer+2}`
+  }
+  if (x.layer > 0) {
+    return `10{${beautifyEN(x.omegalog(10))}}10`
+  }
   if (x.gte("eeeee10")) {
     return `10{${x.array[x.array.length-1][0]+1}}${x.array[x.array.length-1][1]+2}`
     return x.toString()
