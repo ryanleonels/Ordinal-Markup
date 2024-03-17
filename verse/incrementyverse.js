@@ -389,18 +389,62 @@ function displayHugeOrd(x) {
 }
 
 function realDisplayHugeOrd(x,layer=0) {
-  let trimmer = (game.maxOrdLength.more==0||true?0:game.maxOrdLength.more-6)
   let nly = layer+1
-  if (x.gte(ordThreshData["hyperoperational cutoff"])) {
-    let k=x.clone()
-    if (k.layer == 0) {
-      //return `φ<sub>${k.array.length}</sub> (Ω+1)`
-      return `way too large`
-    } else {
-      k.layer--
-      //return `φ<sub>${realDisplayHugeOrd(k,nly)}</sub> (Ω+1)`
-      return `way too large`
+  if (x.layer > 0) {
+    let k = x.clone()
+    let k0 = k.clone(); k0.layer = 0;
+    let layerCutoff = (game.buchholz == 0) ? ordThreshData["madore e(W2+1)"] : ordThreshData["buchholz e(W2+1)"]
+    let layer1 = x.layer; if (k0.gt(layerCutoff)) layer1++;
+    if (layer1 > 3) {
+      let zOrd = EN(layer1).add(2).div(3).floor().mul(3)
+      return (game.buchholz == 0) ? `Γ<sub>${realDisplayHugeOrd(zOrd,nly)}</sub>` : `${game.buchholz==2?`Ω<sub>2</sub>^(Ω<sub>2</sub>)×${realDisplayHugeOrd(zOrd.sub(3),nly)}`:`Ω<sub>2</sub><sup>Ω<sub>2</sub></sup>(${realDisplayHugeOrd(zOrd.sub(3),nly)})`}`
     }
+    k.layer--
+    if (game.buchholz == 0) return `φ<sub>${realDisplayHugeOrd(k,nly)}</sub>(Ω+1)`
+    return (game.buchholz==2) ? `Ω<sub>2</sub>^(Ψ<sub>1</sub>(${realDisplayHugeOrd(k,nly)}))`:`Ω<sub>2</sub><sup>Ψ<sub>1</sub>(${realDisplayHugeOrd(k,nly)})</sup>`
+  }
+  if (x.gte(EN(3).pent(5))) {
+    let arrowLevel = x.array[x.array.length-1][0]
+    let arrowHeight = x.array[x.array.length-1][1]
+    let zOrd = arrowHeight + 3
+    if (arrowLevel === 2) {
+      if (x.lt(EN(3).pent(zOrd))) zOrd--
+      zOrd++
+      zOrd = EN(zOrd).div(3).floor().mul(3)
+      return (game.buchholz == 0) ? `ζ<sub>${realDisplayHugeOrd(zOrd,nly)}</sub>` : `${game.buchholz==2?"Ω<sub>2</sub>^(2)×":"Ω<sub>2</sub><sup>2</sup>"}(${realDisplayHugeOrd(zOrd.sub(3),nly)})`
+    }
+    if (x.lt(EN.hyper(arrowLevel+3)(3,zOrd))) zOrd--
+    zOrd++
+    zOrd = EN(zOrd).div(3).floor().mul(3)
+    if (game.buchholz == 0) return `φ<sub>${realDisplayHugeOrd(EN(arrowLevel),nly)}</sub>(${realDisplayHugeOrd(zOrd,nly)})`
+    return (game.buchholz==2) ? `Ω<sub>2</sub>^(${realDisplayHugeOrd(EN(arrowLevel),nly)})×(${realDisplayHugeOrd(zOrd.sub(3),nly)})`:`Ω<sub>2</sub><sup>${realDisplayHugeOrd(EN(arrowLevel),nly)}</sup>(${realDisplayHugeOrd(zOrd.sub(3),nly)})`
+    //ζ
+    //3^^^5 (height 2) -> 6
+    //3^^^8 (height 5) -> 9
+    //3^^^11 (height 8) -> 12
+  }
+  if (x.gte(EN(3**27).tetr(3))) {
+    let pt = x.slog(3**27).floor()
+    let ordSub = pt.add(3).div(2).floor().mul(3)
+    if (ordSub.gte(3**27)) {
+      let pt2 = ordSub.slog(3**27).floor()
+      let ordSub2 = pt2.add(3).div(2).floor().mul(3)
+      if (ordSub2.gte(3**27)) {
+        let pt3 = ordSub2.slog(3**27).floor()
+        let ordSub3 = pt3.add(3).div(2).floor().mul(3)
+        if (ordSub3.gte(3**27)) return (game.buchholz == 0) ? "ζ<sub>Ω2</sub>" : `${game.buchholz==2?"Ω<sub>2</sub>^(2)":"Ω<sub>2</sub><sup>2</sup>"}`
+        return (game.buchholz == 0) ? `ε<sub>ε<sub>ε<sub>${realDisplayHugeOrd(ordSub3,nly+2)}</sub></sub></sub>` : `Ω<sub>2</sub>${game.buchholz==2?"×":""}Ψ<sub>1</sub>(Ω<sub>2</sub>${game.buchholz==2?"×":""}Ψ<sub>1</sub>(Ω<sub>2</sub>(${realDisplayHugeOrd(ordSub3,nly+2)})))`
+      }
+      return (game.buchholz == 0) ? `ε<sub>ε<sub>${realDisplayHugeOrd(ordSub2,nly+1)}</sub></sub>` : `Ω<sub>2</sub>${game.buchholz==2?"×":""}Ψ<sub>1</sub>(Ω<sub>2</sub>(${realDisplayHugeOrd(ordSub2,nly+1)}))`
+    }
+    let ordE = (game.buchholz == 0) ? `ε<sub>${realDisplayHugeOrd(ordSub,nly)}</sub>` : `Ω<sub>2</sub>(${realDisplayHugeOrd(ordSub,nly)})`
+    if (ordSub.lt(3**27) && pt.mod(2).eq(0) && game.buchholz == 0) return `${ordE}<sup>${ordE}</sup>`
+    return ordE
+    //(3^^3)^^3: ε(realDisplayHugeOrd(9))
+    //(3^^3)^^4: ε(realDisplayHugeOrd(9))^ε(realDisplayHugeOrd(9))
+    //(3^^3)^^5: ε(realDisplayHugeOrd(12))
+    //(3^^3)^^6: ε(realDisplayHugeOrd(12))^ε(realDisplayHugeOrd(12))
+    //(3^^3)^^7: ε(realDisplayHugeOrd(15))
   }
   if (x.gte(ordThreshData["buchholz e(W2+1)"])&&game.buchholz != 0) {
     return "Ω<sub>2</sub>Ω2"
@@ -417,7 +461,7 @@ function realDisplayHugeOrd(x,layer=0) {
   }
   if (x.gte(3)) {
     return displayOrd(x.toNumber(),3,0,game.maxOrdLength.less-game.maxOrdLength.more).split("ω").join("Ω")
-    
+
   }
   return x.toString()
 }
