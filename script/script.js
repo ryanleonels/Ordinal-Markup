@@ -318,7 +318,7 @@ function loop(unadjusted, off = 0) {
   limAutoMult = game.aups.includes(2)
     ? Math.max(Math.sqrt(game.succAuto), 1)
     : 1;
-  const chal8Tip = game.ord >= (game.base**(3*game.base+(game.base==5&&game.sfBought.includes(61) ? game.base : 0)));
+  //const chal8Tip = game.ord >= (game.base**(3*game.base+(game.base==5&&game.sfBought.includes(61) ? game.base : 0)));
   const tempSucc = game.succAuto * succAutoMult * totalMult;
   const tempLim = game.limAuto * limAutoMult * totalMult;
   if (game.iups[3] === 1) buptotalMute += 500000000;
@@ -377,8 +377,8 @@ function loop(unadjusted, off = 0) {
     game.over = 0;
     game.ord = Math.max(Math.min(game.succAuto, game.limAuto), 4e270);
   }
-  if ((!chal8Tip) && inChal(8) && calcOrdPoints() >= 1e30*1e10**(game.base==5&&game.sfBought.includes(61)))
-    game.ord = game.base ** (game.base * 3+(game.base==5&&game.sfBought.includes(61)?game.base:0));
+  /*if ((!chal8Tip) && inChal(8) && calcOrdPoints() >= 1e30*1e10**(game.base==5&&game.sfBought.includes(61)))
+    game.ord = game.base ** (game.base * 3+(game.base==5&&game.sfBought.includes(61)?game.base:0));*/
   changeDynamic(ms);
   if (game.dynamic < 0) game.dynamic = 0;
   if (ms > 0) {
