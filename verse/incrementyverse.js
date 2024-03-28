@@ -400,7 +400,7 @@ function realDisplayHugeOrd(x,layer=0) {
       return (game.buchholz == 0) ? `Γ<sub>${realDisplayHugeOrd(zOrd,nly)}</sub>` : `${game.buchholz==2?`Ω<sub>2</sub>^(Ω<sub>2</sub>)×${realDisplayHugeOrd(zOrd.sub(3),nly)}`:`Ω<sub>2</sub><sup>Ω<sub>2</sub></sup>(${realDisplayHugeOrd(zOrd.sub(3),nly)})`}`
     }
     k.layer--
-    if (game.buchholz == 0) return `φ<sub>${realDisplayHugeOrd(k,nly)}</sub>(Ω+1)`
+    if (game.buchholz == 0) return `φ(${realDisplayHugeOrd(k,nly)},Ω+1)`
     return (game.buchholz==2) ? `Ω<sub>2</sub>^(Ψ<sub>1</sub>(${realDisplayHugeOrd(k,nly)}))`:`Ω<sub>2</sub><sup>Ψ<sub>1</sub>(${realDisplayHugeOrd(k,nly)})</sup>`
   }
   if (x.gte(EN(3).pent(5))) {
@@ -417,7 +417,7 @@ function realDisplayHugeOrd(x,layer=0) {
     zOrd++
     zOrd = EN(zOrd).div(3).floor().mul(3)
     if (zOrd.eq(3)) zOrd = EN(4)
-    if (game.buchholz == 0) return `φ<sub>${realDisplayHugeOrd(EN(arrowLevel),nly)}</sub>(${realDisplayHugeOrd(zOrd,nly)})`
+    if (game.buchholz == 0) return `φ(${realDisplayHugeOrd(EN(arrowLevel),nly)},${realDisplayHugeOrd(zOrd,nly)})`
     return (game.buchholz==2) ? `Ω<sub>2</sub>^(${realDisplayHugeOrd(EN(arrowLevel),nly)})×(${realDisplayHugeOrd(zOrd.sub(3),nly)})`:`Ω<sub>2</sub><sup>${realDisplayHugeOrd(EN(arrowLevel),nly)}</sup>(${realDisplayHugeOrd(zOrd.sub(3),nly)})`
     //ζ
     //3^^^5 (height 2) -> 6
