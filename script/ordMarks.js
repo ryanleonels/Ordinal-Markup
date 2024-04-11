@@ -3,8 +3,8 @@ let ordMarks;
 function setMarks() {
   ordMarks = [
     [
-      "ψ(x)",
       "ψ(Ωx)",
+      "ψ(Ω<sup>2</sup>x)",
       "ψ(Ω<sup>x</sup>)",
       "ψ(Ω<sup>Ω</sup>x)",
       "ψ(Ω<sup>Ω+1</sup>x)",
