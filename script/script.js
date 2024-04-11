@@ -65,9 +65,9 @@ let collapseAnimation = 0;
 /* eslint-enable */
 const iupCosts = [1e5, 1e3, 1e9, 5e12, 2e19, 4e20, 1e15, 1e21, 1e22];
 const dupCosts = [
-  3,
-  100,
-  6,
+  4,
+  1000,
+  8,
   Infinity,
   Infinity,
   Infinity,
