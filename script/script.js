@@ -1714,7 +1714,7 @@ function displayOrd(
   } else if (getSingLevel() == 1&&ord==BHO) {
     if (ordColor == "no") ordColor = HSL(40 * 8);
     return colour == 1 ? color("BHO", ["BHO"], HSL(80 * 4)) : "BHO";
-  } else if (ord < BHO * (ordMarks[0].length - 39)) {
+  } else if (ord < BHO * (ordMarks[game.buchholz].length - 39)) {
     let tempvar = Math.floor(ord / BHO - 1);
 
     let tempvar2 = 3 ** (ord / BHO - 1) - 3 ** tempvar;
@@ -1770,7 +1770,7 @@ function displayOrd(
     );
     return output;
   } else { // unbreak huge ordinals (requires incrementyverse update)
-    return displayHugeOrd(EN(3).pow((ord/BHO)-237).times(4));
+    return displayHugeOrd(EN(3).pow((ord/BHO)*(729/1108)).times(4));
   }
 }
 
