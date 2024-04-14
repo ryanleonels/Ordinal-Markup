@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://omdinal-barkup.netlify.app/ with changes to support local play and unbreak certain features -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ordinal Markup</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn.glitch.com/310d7aca-4728-445f-9084-db26ceccd7b5%2FOrdinal%20Markup%20logo.png?v=1587927427273">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style/mobile.css">
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css" id="notify-bootstrap">.notifyjs-bootstrap-base {
+	font-weight: bold;
+	padding: 8px 15px 8px 14px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	white-space: nowrap;
+	padding-left: 25px;
+	background-repeat: no-repeat;
+	background-position: 3px 7px;
+}
+.notifyjs-bootstrap-achieve {
+	font-weight: bold;
+	padding: 8px 15px 8px 14px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	color: #000000;
+	background-color: #ffff00;
+	border: 1px solid #fbeed5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	white-space: nowrap;
+	padding-left: 25px;
+	background-repeat: no-repeat;
+	background-position: 3px 7px;
+}
+.notifyjs-bootstrap-error {
+	color: #B94A48;
+	background-color: #F2DEDE;
+	border-color: #EED3D7;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAtRJREFUeNqkVc1u00AQHq+dOD+0poIQfkIjalW0SEGqRMuRnHos3DjwAH0ArlyQeANOOSMeAA5VjyBxKBQhgSpVUKKQNGloFdw4cWw2jtfMOna6JOUArDTazXi/b3dm55socPqQhFka++aHBsI8GsopRJERNFlY88FCEk9Yiwf8RhgRyaHFQpPHCDmZG5oX2ui2yilkcTT1AcDsbYC1NMAyOi7zTX2Agx7A9luAl88BauiiQ/cJaZQfIpAlngDcvZZMrl8vFPK5+XktrWlx3/ehZ5r9+t6e+WVnp1pxnNIjgBe4/6dAysQc8dsmHwPcW9C0h3fW1hans1ltwJhy0GxK7XZbUlMp5Ww2eyan6+ft/f2FAqXGK4CvQk5HueFz7D6GOZtIrK+srupdx1GRBBqNBtzc2AiMr7nPplRdKhb1q6q6zjFhrklEFOUutoQ50xcX86ZlqaZpQrfbBdu2R6/G19zX6XSgh6RX5ubyHCM8nqSID6ICrGiZjGYYxojEsiw4PDwMSL5VKsC8Yf4VRYFzMzMaxwjlJSlCyAQ9l0CW44PBADzXhe7xMdi9HtTrdYjFYkDQL0cn4Xdq2/EAE+InCnvADTf2eah4Sx9vExQjkqXT6aAERICMewd/UAp/IeYANM2joxt+q5VI+ieq2i0Wg3l6DNzHwTERPgo1ko7XBXj3vdlsT2F+UuhIhYkp7u7CarkcrFOCtR3H5JiwbAIeImjT/YQKKBtGjRFCU5IUgFRe7fF4cCNVIPMYo3VKqxwjyNAXNepuopyqnld602qVsfRpEkkz+GFL1wPj6ySXBpJtWVa5xlhpcyhBNwpZHmtX8AGgfIExo0ZpzkWVTBGiXCSEaHh62/PoR0p/vHaczxXGnj4bSo+G78lELU80h1uogBwWLf5YlsPmgDEd4M236xjm+8nm4IuE/9u+/PH2JXZfbwz4zw1WbO+SQPpXfwG/BBgAhCNZiSb/pOQAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-success {
+	color: #468847;
+	background-color: #DFF0D8;
+	border-color: #D6E9C6;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAutJREFUeNq0lctPE0Ecx38zu/RFS1EryqtgJFA08YCiMZIAQQ4eRG8eDGdPJiYeTIwHTfwPiAcvXIwXLwoXPaDxkWgQ6islKlJLSQWLUraPLTv7Gme32zoF9KSTfLO7v53vZ3d/M7/fIth+IO6INt2jjoA7bjHCJoAlzCRw59YwHYjBnfMPqAKWQYKjGkfCJqAF0xwZjipQtA3MxeSG87VhOOYegVrUCy7UZM9S6TLIdAamySTclZdYhFhRHloGYg7mgZv1Zzztvgud7V1tbQ2twYA34LJmF4p5dXF1KTufnE+SxeJtuCZNsLDCQU0+RyKTF27Unw101l8e6hns3u0PBalORVVVkcaEKBJDgV3+cGM4tKKmI+ohlIGnygKX00rSBfszz/n2uXv81wd6+rt1orsZCHRdr1Imk2F2Kob3hutSxW8thsd8AXNaln9D7CTfA6O+0UgkMuwVvEFFUbbAcrkcTA8+AtOk8E6KiQiDmMFSDqZItAzEVQviRkdDdaFgPp8HSZKAEAL5Qh7Sq2lIJBJwv2scUqkUnKoZgNhcDKhKg5aH+1IkcouCAdFGAQsuWZYhOjwFHQ96oagWgRoUov1T9kRBEODAwxM2QtEUl+Wp+Ln9VRo6BcMw4ErHRYjH4/B26AlQoQQTRdHWwcd9AH57+UAXddvDD37DmrBBV34WfqiXPl61g+vr6xA9zsGeM9gOdsNXkgpEtTwVvwOklXLKm6+/p5ezwk4B+j6droBs2CsGa/gNs6RIxazl4Tc25mpTgw/apPR1LYlNRFAzgsOxkyXYLIM1V8NMwyAkJSctD1eGVKiq5wWjSPdjmeTkiKvVW4f2YPHWl3GAVq6ymcyCTgovM3FzyRiDe2TaKcEKsLpJvNHjZgPNqEtyi6mZIm4SRFyLMUsONSSdkPeFtY1n0mczoY3BHTLhwPRy9/lzcziCw9ACI+yql0VLzcGAZbYSM5CCSZg1/9oc/nn7+i8N9p/8An4JMADxhH+xHfuiKwAAAABJRU5ErkJggg==);
+}
+.notifyjs-bootstrap-info {
+	color: #3A87AD;
+	background-color: #D9EDF7;
+	border-color: #BCE8F1;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYFAhkSsdes/QAAA8dJREFUOMvVlGtMW2UYx//POaWHXg6lLaW0ypAtw1UCgbniNOLcVOLmAjHZolOYlxmTGXVZdAnRfXQm+7SoU4mXaOaiZsEpC9FkiQs6Z6bdCnNYruM6KNBw6YWewzl9z+sHImEWv+vz7XmT95f/+3/+7wP814v+efDOV3/SoX3lHAA+6ODeUFfMfjOWMADgdk+eEKz0pF7aQdMAcOKLLjrcVMVX3xdWN29/GhYP7SvnP0cWfS8caSkfHZsPE9Fgnt02JNutQ0QYHB2dDz9/pKX8QjjuO9xUxd/66HdxTeCHZ3rojQObGQBcuNjfplkD3b19Y/6MrimSaKgSMmpGU5WevmE/swa6Oy73tQHA0Rdr2Mmv/6A1n9w9suQ7097Z9lM4FlTgTDrzZTu4StXVfpiI48rVcUDM5cmEksrFnHxfpTtU/3BFQzCQF/2bYVoNbH7zmItbSoMj40JSzmMyX5qDvriA7QdrIIpA+3cdsMpu0nXI8cV0MtKXCPZev+gCEM1S2NHPvWfP/hL+7FSr3+0p5RBEyhEN5JCKYr8XnASMT0xBNyzQGQeI8fjsGD39RMPk7se2bd5ZtTyoFYXftF6y37gx7NeUtJJOTFlAHDZLDuILU3j3+H5oOrD3yWbIztugaAzgnBKJuBLpGfQrS8wO4FZgV+c1IxaLgWVU0tMLEETCos4xMzEIv9cJXQcyagIwigDGwJgOAtHAwAhisQUjy0ORGERiELgG4iakkzo4MYAxcM5hAMi1WWG1yYCJIcMUaBkVRLdGeSU2995TLWzcUAzONJ7J6FBVBYIggMzmFbvdBV44Corg8vjhzC+EJEl8U1kJtgYrhCzgc/vvTwXKSib1paRFVRVORDAJAsw5FuTaJEhWM2SHB3mOAlhkNxwuLzeJsGwqWzf5TFNdKgtY5qHp6ZFf67Y/sAVadCaVY5YACDDb3Oi4NIjLnWMw2QthCBIsVhsUTU9tvXsjeq9+X1d75/KEs4LNOfcdf/+HthMnvwxOD0wmHaXr7ZItn2wuH2SnBzbZAbPJwpPx+VQuzcm7dgRCB57a1uBzUDRL4bfnI0RE0eaXd9W89mpjqHZnUI5Hh2l2dkZZUhOqpi2qSmpOmZ64Tuu9qlz/SEXo6MEHa3wOip46F1n7633eekV8ds8Wxjn37Wl63VVa+ej5oeEZ/82ZBETJjpJ1Rbij2D3Z/1trXUvLsblCK0XfOx0SX2kMsn9dX+d+7Kf6h8o4AIykuffjT8L20LU+w4AZd5VvEPY+XpWqLV327HR7DzXuDnD8r+ovkBehJ8i+y8YAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-warn {
+	color: #C09853;
+	background-color: #FCF8E3;
+	border-color: #FBEED5;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABJlBMVEXr6eb/2oD/wi7/xjr/0mP/ykf/tQD/vBj/3o7/uQ//vyL/twebhgD/4pzX1K3z8e349vK6tHCilCWbiQymn0jGworr6dXQza3HxcKkn1vWvV/5uRfk4dXZ1bD18+/52YebiAmyr5S9mhCzrWq5t6ufjRH54aLs0oS+qD751XqPhAybhwXsujG3sm+Zk0PTwG6Shg+PhhObhwOPgQL4zV2nlyrf27uLfgCPhRHu7OmLgAafkyiWkD3l49ibiAfTs0C+lgCniwD4sgDJxqOilzDWowWFfAH08uebig6qpFHBvH/aw26FfQTQzsvy8OyEfz20r3jAvaKbhgG9q0nc2LbZxXanoUu/u5WSggCtp1anpJKdmFz/zlX/1nGJiYmuq5Dx7+sAAADoPUZSAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBgUBGhh4aah5AAAAlklEQVQY02NgoBIIE8EUcwn1FkIXM1Tj5dDUQhPU502Mi7XXQxGz5uVIjGOJUUUW81HnYEyMi2HVcUOICQZzMMYmxrEyMylJwgUt5BljWRLjmJm4pI1hYp5SQLGYxDgmLnZOVxuooClIDKgXKMbN5ggV1ACLJcaBxNgcoiGCBiZwdWxOETBDrTyEFey0jYJ4eHjMGWgEAIpRFRCUt08qAAAAAElFTkSuQmCC);
+}
+</style><style type="text/css" id="core-notify">.notifyjs-corner {
+	position: fixed;
+	margin: 5px;
+	z-index: 1050;
+}
+
+.notifyjs-corner .notifyjs-wrapper,
+.notifyjs-corner .notifyjs-container {
+	position: relative;
+	display: block;
+	height: inherit;
+	width: inherit;
+	margin: 3px;
+}
+
+.notifyjs-wrapper {
+	z-index: 1;
+	position: absolute;
+	display: inline-block;
+	height: 0;
+	width: 0;
+}
+
+.notifyjs-container {
+	display: none;
+	z-index: 1;
+	position: absolute;
+}
+
+.notifyjs-hidable {
+	cursor: pointer;
+}
+
+[data-notify-text],[data-notify-html] {
+	position: relative;
+}
+
+.notifyjs-arrow {
+	position: absolute;
+	z-index: 2;
+	width: 0;
+	height: 0;
+}
+
+table, th, td {
+  border: 1px solid white;
+  margin: 5px;
+  font-size: 10pt;
+}
+</style></head><body id="body"><div id="theme"><link rel="stylesheet" href="style/dark.css"></div>
+    <!-- import the webpage's javascript file -->
+    <script src="script/color.js"></script>
+    <script src="script/ExpantaNum.js"></script>
+    <script src="script/function.js"></script>
+    <script src="script/ordLevel.js"></script>
+    <script src="script/ordMarks.js"></script>
+    <script src="script/ordRender.js"></script>
+    <table id="ordLevelList">
+    	<tr>
+    		<td>Ordinal Level</td>
+    		<td>Ordinal Number</td>
+    		<td>Ordinal Points</td>
+    		<td>Uncapped Ordinal Points</td>
+    		<td>Madore's</td>
+    		<td>Buchholz's</td>
+    		<td>Convenient</td>
+    	</tr>
+    </table>
+    <script>
+    	setMarks();
+    	var table = document.getElementById("ordLevelList");
+    	game = {buchholz: 0};
+    	game.base = 3;
+    	game.maxOrdLength = {less: 5, more: 7};
+    	for (const level in ordThresh) {
+	    	let lv = parseInt(level);
+	    	if (lv == 155) break;
+
+	    	let levelDisp = level;
+	    	game.base = 3;
+	    	if (lv == 4 || lv == 8 || lv == 16 || lv == 19 || lv == 25 || lv == 26 || lv == 27 || lv == 30 || lv == 31 || lv == 32 || lv == 33 || lv == 34) game.base = 4;
+	    	if (lv == 5 || lv == 9 || lv == 28) game.base = 5;
+	    	if (lv == 29) game.base = 6;
+	    	if (lv == 10) game.base = 11;
+	    	if (game.base > 3) levelDisp = level + " (Base " + game.base + "+)";
+	    	switch (lv) {
+	    		case 51: levelDisp += " = ε<sub>0</sub>"; break;
+	    		case 67: levelDisp += " = ε<sub>ω</sub>"; break;
+	    		case 68: levelDisp += " = ε<sub>ε<sub>0</sub></sub>"; break;
+	    		case 70: levelDisp += " = ζ<sub>0</sub>"; break;
+	    		case 77: levelDisp += " = ζ<sub>ω</sub>"; break;
+	    		case 78: levelDisp += " = ζ<sub>ζ<sub>0</sub></sub>"; break;
+	    		case 90: levelDisp += " = φ(ω, 0)"; break;
+	    		case 94: levelDisp += " = φ(ω<sup>2</sup>, 0)"; break;
+    			case 95: levelDisp += " = φ(ω<sup>ω</sup>, 0)"; break;
+				case 96: levelDisp += " = φ(ε<sub>0</sub>, 0)"; break;
+				case 97: levelDisp += " = φ(φ(ω, 0), 0)"; break;
+				case 98: levelDisp += " = φ(φ(ε<sub>0</sub>, 0), 0)"; break;
+				case 100: levelDisp += " = Γ<sub>0</sub> = φ(1, 0, 0) = FB1"; break;
+				case 102: levelDisp += " = FB1 (first time)"; break;
+				case 104: levelDisp += " = FB2"; break;
+				case 106: levelDisp += " = FB4"; break;
+				case 110: levelDisp += " = φ(1, 0, 0, 0) = Ackermann = FB7"; break;
+				case 112: levelDisp += " = FB8"; break;
+				case 114: levelDisp += " = FB10"; break;
+				case 116: levelDisp += " = Double Ackermann = FB16"; break;
+				case 120: levelDisp += " = SVO"; break;
+				case 150: levelDisp += " = LVO = BHO (Base 3) = FB25 = SL1"; break;
+				case 151: levelDisp += " = SL2"; break;
+				case 152: levelDisp += " = SL41"; break;
+				case 153: levelDisp += " = SL86"; break;
+				case 154: levelDisp += " = Ackermann's BHO = SL342"; break;
+	    	}
+
+	    	var rowCount = table.rows.length;
+	    	var row = table.insertRow(rowCount);
+
+	    	var cell0 = row.insertCell(0);
+	    	cell0.innerHTML = levelDisp;
+
+	    	var cell1 = row.insertCell(1);
+	    	cell1.innerHTML = getPsiReq(lv)();
+
+	    	var cell2 = row.insertCell(2);
+	    	let OP = getPsiReq(lv)();
+	    	if (lv < 50) {
+		    	let temp = game.base;
+		    	game.base = 10;
+		    	OP = Math.min(1e258, getPsiReq(lv)());
+		    	game.base = temp;
+		    }
+	    	cell2.innerHTML = OP;
+
+	    	var cell3 = row.insertCell(3);
+	    	switch(lv) {
+	    		case 25: OP1 = EN('1e300').toString(); break;
+	    		case 26: OP1 = EN('1e1000').toString(); break;
+	    		case 27: OP1 = EN('1e2000').toString(); break;
+	    		case 28: OP1 = EN('1e10000').toString() + " (ω<sup>ω<sup>4</sup></sup>, unreachable)"; break;
+	    		case 29: OP1 = EN('1e100000').toString() + " (ω<sup>ω<sup>5</sup></sup>, unreachable)"; break;
+	    		case 30: OP1 = EN('1e10000000000').toString(); break;
+	    		case 31: OP1 = EN('1e10000000000').toString() + " + 1 (ω<sup>ω<sup>ω</sup></sup>+1)"; break;
+	    		case 32: OP1 = EN('1e10000000001').toString(); break;
+	    		case 33: OP1 = EN('1e10000000010').toString(); break;
+	    		case 34: OP1 = EN('1e20000000000').toString() + " (ω<sup>ω<sup>ω</sup>2</sup>, unreachable)"; break;
+	    		case 51: OP1 = beautifyEN('10^^10'); break;
+	    		case 67: OP1 = beautifyEN('10^^110'); break;
+	    		case 68: OP1 = beautifyEN('10^^^3'); break;
+	    		case 70: OP1 = beautifyEN('10^^^11'); break;
+	    		case 77: OP1 = beautifyEN('10^^^100'); break;
+	    		case 78: OP1 = beautifyEN('10^^^^3'); break;
+	    		case 90: OP1 = beautifyEN('10{11}11'); break;
+	    		case 94: OP1 = beautifyEN('10{101}11'); break;
+	    		case 95: OP1 = beautifyEN('10{10000000001}10'); break;
+	    		case 96: OP1 = "10{10^^10 + 1}10 ≈ " + beautifyEN(EN.arrow(10, EN('10^^10').add(1), 10)); break;
+	    		case 97: OP1 = "10{10{11}10 + 1}10 ≈ " + beautifyEN(EN.arrow(10, EN('10{11}10').add(1), 10)); break;
+	    		case 98: OP1 = "10{10{10^^10}10 + 1}10 ≈ " + beautifyEN(EN.arrow(10, EN.arrow(10, EN('10^^10'), 10).add(1), 10)); break;
+	    		case 100: OP1 = "{10, 10, 1, 2} = " + beautifyEN(EN.expansion(10,10)) + " ≈ G(10)"; break;
+	    		case 102: OP1 = "{10, 110, 1, 2} = " + beautifyEN(EN.expansion(10,110)) + " ≈ G(110) > Graham's Number (G(64))"; break;
+	    		case 103: OP1 = "{10, {10, 10, 1, 2}, 1, 2} = 10{{2}}3"; break;
+	    		case 104: OP1 = "{10, 10, 2, 2} = 10{{2}}10"; break;
+	    		case 105: OP1 = "{10, 10, 11, 2} = 10{{11}}10"; break;
+	    		case 106: OP1 = "{10, 10, 1, 3} = 10{{{1}}}10"; break;
+	    		case 107: OP1 = "{10, 10, 1, 11} = 10{{{{{{{{{{{1}}}}}}}}}}}10"; break;
+	    		case 108: OP1 = "{10, 10, 1, {10, 10, 1, 2}}"; break;
+	    		case 109: OP1 = "{10, 10, 1, {10, 10, 1, {10, 10, 1, 2}}}"; break;
+	    		case 110: OP1 = "{10, 10, 1, 1, 2}"; break;
+	    		case 111: OP1 = "{10, 11, 1, 1, 2}"; break;
+	    		case 112: OP1 = "{10, 10, 2, 1, 2}"; break;
+	    		case 113: OP1 = "{10, 10, 11, 1, 2}"; break;
+	    		case 114: OP1 = "{10, 10, 1, 2, 2}"; break;
+	    		case 115: OP1 = "{10, 10, 1, 11, 2}"; break;
+	    		case 116: OP1 = "{10, 10, 1, 1, 3}"; break;
+	    		case 117: OP1 = "{10, 10, 1, 1, 11}"; break;
+	    		case 118: OP1 = "{10, 10, 1, 1, 1, 11}"; break;
+	    		case 119: OP1 = "{10, 10, 1, 1, 2, 11}"; break;
+	    		case 120: OP1 = "{10, 12(1)2}"; break;
+    			case 122: OP1 = "{10, 13(1)2}"; break;
+				case 124: OP1 = "{10, 14(1)2}"; break;
+				case 125: OP1 = "{10, 21(1)2}"; break;
+				case 150: OP1 = "{10, 10, 2(1)2}"; break;
+				case 151: OP1 = "{10, 10, 3(1)2}"; break;
+				case 152: OP1 = "{10, 2 + 3(1)3}"; break;
+				case 153: OP1 = "{10, 10 + 1(2)2}"; break;
+				case 154: OP1 = "{10, 10, 2(2)2}"; break;
+	    		default: OP1 = OP;
+	    	}
+	    	cell3.innerHTML = OP1;
+
+	    	game.buchholz = 0;
+	    	var cell4 = row.insertCell(4);
+	    	cell4.innerHTML = displayOrd(getPsiReq(lv)(), game.base);
+
+	    	game.buchholz = 1;
+	    	var cell5 = row.insertCell(5);
+	    	cell5.innerHTML = displayOrd(getPsiReq(lv)(), game.base);
+
+	    	game.buchholz = 2;
+	    	var cell6 = row.insertCell(6);
+	    	cell6.innerHTML = displayOrd(getPsiReq(lv)(), game.base);
+	    }
+	    for (let lv = 155; lv <= 160; lv++) {
+	    	let lvDisp = lv;
+	    	switch (lv) {
+	    		case 155: lvDisp += (" = buchholz e(W2+1) = SL(" + beautifyEN(getPsiReq(lv)) + ")"); break;
+    			default: lvDisp += (" = SL(" + beautifyEN(getPsiReq(lv)) + ")"); break;
+	    	}
+
+	    	var rowCount = table.rows.length;
+	    	var row = table.insertRow(rowCount);
+
+	    	var cell0 = row.insertCell(0);
+	    	cell0.innerHTML = lvDisp;
+
+	    	var cell1 = row.insertCell(1);
+	    	cell1.innerHTML = lv == 158 ? beautifyEN(getPsiReq(lv)) : (lv == 157 ? "3{27}3 = 2.37J26 ≈ 10{26}10" : getPsiReq(lv));
+
+	    	var cell2 = row.insertCell(2);
+	    	cell2.innerHTML = lv == 158 ? beautifyEN(getPsiReq(lv)) : (lv == 157 ? "3{27}3 = 2.37J26 ≈ 10{26}10" : getPsiReq(lv));
+
+	    	var cell3 = row.insertCell(3);
+	    	switch(lv) {
+	    		case 155: OP1 = "{10, 10, 2(0, 1)2}"; break;
+	    		case 156: OP1 = "{10, 10(1, 1)2}"; break;
+	    		case 157: OP1 = "X ^^ X & 10"; break;
+	    		case 158: OP1 = "X ^^ X^2 & 10"; break;
+	    		case 159: OP1 = "X ^^ X^X & 10"; break;
+	    		case 160: OP1 = "Absolute Infinity = Ω"; break;
+	    	}
+	    	cell3.innerHTML = OP1;
+
+	    	game.buchholz = 0;
+	    	var cell4 = row.insertCell(4);
+	    	cell4.innerHTML = displayHugeOrd(getPsiReq(lv));
+
+	    	game.buchholz = 1;
+	    	var cell5 = row.insertCell(5);
+	    	cell5.innerHTML = displayHugeOrd(getPsiReq(lv));
+
+	    	game.buchholz = 2;
+	    	var cell6 = row.insertCell(6);
+	    	cell6.innerHTML = displayHugeOrd(getPsiReq(lv));
+	    }
+    </script>
+</body></html>
