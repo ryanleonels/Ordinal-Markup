@@ -8,6 +8,11 @@ const ordThreshData = {
   "hyperoperational cutoff": EN.arrow(3,27,3)
 }
 const tenTetrTen = EN(10).tetr(10)
+const tenPentTen = EN(10).pent(10)
+const tridecal = EN(10).arrow(10)(10)
+const boogol = EN(10).arrow(100)(10)
+const infinityPlex = EN(10).arrow(Number.MAX_VALUE)(10)
+const tridecalPlex = EN(10).arrow(EN(10).arrow(10)(10))(10)
 const fractalTemplate = document.getElementById("fractalEngineMachines").children[0].cloneNode(true)
 
 

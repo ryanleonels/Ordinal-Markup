@@ -358,11 +358,11 @@ const achieveData = [
       () => game.incrementy.gte("ee10"),
       () => game.incrementy.gte("eee10"),
       () => game.incrementy.gte(tenTetrTen),
-      () => game.incrementy.gte(EN(10).pent(10)),
-      () => game.incrementy.gte(EN.arrow(10,10,10)),
-      () => game.incrementy.gte(EN.arrow(10,100,10)),
-      () => game.incrementy.gte(EN.arrow(10,EN.pow(2,1024),10)),
-      () => game.incrementy.gte(EN.arrow(10,EN.arrow(10,10,10),10))
+      () => game.incrementy.gte(tenPentTen),
+      () => game.incrementy.gte(tridecal),
+      () => game.incrementy.gte(boogol),
+      () => game.incrementy.gte(infinityPlex),
+      () => game.incrementy.gte(tridecalPlex),
     ],
     name: [
       "Welcome to the E",
