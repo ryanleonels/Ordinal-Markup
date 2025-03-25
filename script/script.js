@@ -639,7 +639,7 @@ function render() {
   get("buysucc").innerHTML =
     `Buy Successor Autobuyer for ${(inChal(1)? game.succAuto === 1
         ? "Infinity"
-        : "1.000e6"
+        : "1,000"
       : beautify(
           Math.min(1e260 + game.succAuto, 100 * (2 ** game.succAuto))
         ))} OP`;
@@ -648,7 +648,7 @@ function render() {
     (inChal(1)
       ? game.limAuto === 1
         ? "Infinity"
-        : "1.000e6"
+        : "1,000"
       : beautify(Math.min(10 ** 260 + game.limAuto, 100 * 2 ** game.limAuto))) +
     "  OP";
   get("factorShift").innerHTML =
@@ -1525,8 +1525,8 @@ function updateFactors() {
 
 function buysucc(rend = 0) {
   if (inChal(1)) {
-    if (game.OP >= 1000000 && game.succAuto == 0) {
-      game.OP -= 1000000;
+    if (game.OP >= 1000 && game.succAuto == 0) {
+      game.OP -= 1000;
       game.succAuto += 1;
     }
   } else {
@@ -1542,8 +1542,8 @@ function buysucc(rend = 0) {
 
 function buylim(rend = 0) {
   if (inChal(1)) {
-    if (game.OP >= 1000000 && game.limAuto == 0) {
-      game.OP -= 1000000;
+    if (game.OP >= 1000 && game.limAuto == 0) {
+      game.OP -= 1000;
       game.limAuto += 1;
     }
   } else {
