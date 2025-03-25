@@ -13,9 +13,11 @@ function project(x) {
         ? "Reach " + beautify(5e270) + " to see when you can boost!"
         : game.factorBoosts + getFactorBulk() >= 25 && getFactorBulk() >= 1
         ? "You can't bulk past the BHO!"
+        : game.omegaChallenge == 1
+        ? "Next boost in bulk will take forever due to Ordinal Cap."
         : "Next boost in bulk will take " +
           ((game.upgrades.includes(2) || game.leastBoost <= 1.5) && (game.autoOn.max==1) &&
-          ((game.upgrades.includes(3)&&game.autoOn.inf==1) || game.leastBoost <= 1e10)
+          ((game.upgrades.includes(3)&&game.autoOn.inf==1) || game.leastBoost <= 1e300)
             ? time(
                 game.factorBoosts < 24
                   ? Math.floor(
@@ -72,6 +74,7 @@ function challengeProject() {
     let goal = challengeGoals[game.challenge-1][game.challengeCompletion[game.challenge-1]]
     goal = (goal - (game.challenge==6||game.challenge==7?0:game.OP)) / OPmult
     let ordGoal = OPtoOrd(goal,game.base)
+    if (game.challenge == 2 && game.challengeCompletion[1] == 0 || game.challenge == 1 && game.challengeCompletion[0] == 2) ordGoal = 3**27
     percent = Math.min(1,ord / ordGoal)*100
     get("chalProg").style.width=percent + "%"
     get("chalProg").textContent=percent.toFixed(2) + "%"

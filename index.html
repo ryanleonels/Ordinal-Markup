@@ -77,8 +77,8 @@
       <p>Oh, and also, if you like this game, or you dislike the timewalls, why don't you play <a href="https://patcailmemer.github.io/om-fse-minus/">Ordinal Markup Factor Shift Edition Minus?</a></p>
       <p>It has more content below ψ(Ω) and you can reach <b>REALLY</b> large numbers (smaller than vanilla though)</p>
       <p>Oh, and why not you join the <a href="https://discordapp.com/invite/RerPeNA">Discord Server?</a></p>
-      <b><p>Current Version: v0.4</p>
-        Last Updated: October 12th, 2020</b>
+      <b><p>Current Version: v0.42</p>
+        Last Updated: March 25, 2025</b>
     </div>
     <div id="Tab3">
       <p>Your highest Ordinal was w [WIP]</p>
@@ -301,7 +301,7 @@ Only to find the exact same climb once more.</p>-->
         <div><table>
           <tr>
             <td><button class="treeButton darkButton" id="dup1" onclick="dup(1)">Reduce the potency of decrementy by 5%<br><br>Cost: 1.00e5</button></td>
-            <td><button class="treeButton darkButton" id="dup2" onclick="dup(2)">Halve decrementy growth below ω^(ω3), otherwise double it<br>Cost: 1.00e1000</button></td>
+            <td><button class="treeButton darkButton" id="dup2" onclick="dup(2)">Square root decrementy growth below ω^(ω3), otherwise square it<br>Cost: 1.00e1000</button></td>
             <td><button class="treeButton darkButton" id="dup3" onclick="dup(3)">Gain a 1.2x multiplier to Tier 1 and 2<br><br>Cost: 1.00e9</button></td>
           </tr>
           <tr style="display: none">
@@ -349,25 +349,25 @@ Only to find the exact same climb once more.</p>-->
           <td><button class="treeButton locked" id="bup4" onclick="bup(4)">Unlock Challenges<br><br>Need 10 Boosters</button></td>
         </tr>
         <tr>
-          <td><button class="treeButton locked" id="bup5" onclick="bup(5)">Gain 5x as much OP<br><br><text id="bup5Cost">5</text> Boosters</button></td>
+          <td><button class="treeButton locked" id="bup5" onclick="bup(5)">Gain 5x as much OP<br><br><text id="bup5Cost">5</text></button></td>
           <td><button class="treeButton locked" id="bup6" onclick="bup(6)">Boosters boost Tier 1 and 2 automation by x<text id="bup6 current">1.00</text><br>2 Boosters</button></td>
           <td><button class="treeButton locked" id="bup7" onclick="bup(7)">Gain 20 OP per second<br><br>2 Boosters</button></td>
           <td><button class="treeButton locked" id="bup8" onclick="bup(8)">Unlock Incrementy<br><br>Need 21 Boosters</button></td>
         </tr>
         <tr>
-          <td><button class="treeButton locked" id="bup9" onclick="bup(9)" style="font-size:12pt">The base is reduced by 4 if it's over 7. Buying this resets your ordinal<br><text id="bup9Cost">72</text> Boosters</button></td>
+          <td><button class="treeButton locked" id="bup9" onclick="bup(9)" style="font-size:12pt">The base is reduced by 4 if it's over 7. Buying this resets your ordinal<br><text id="bup9Cost">72</text></button></td>
           <td><button class="treeButton locked" id="bup10" onclick="bup(10)" style="font-size:12pt">The base is always 5 below a<br>73 Boosters</button></td>
           <td><button class="treeButton locked" id="bup11" onclick="bup(11)">You get 3 free factors each<br><br>8 Boosters</button></td>
           <td><button class="treeButton locked" id="bup12" onclick="bup(12)">Extend Incrementy<br>Need 66 Boosters and 7 Challenge Completions</button></td>
         </tr>
         <tr>
-          <td><button class="treeButton locked" id="bup13" onclick="bup(13)">In odd numbered challenges, Dynamic factor is squared<br><text id="bup13Cost">53</text> Boosters</button></td>
+          <td><button class="treeButton locked" id="bup13" onclick="bup(13)">In odd numbered challenges, Dynamic factor is squared<br><text id="bup13Cost">53</text></button></td>
           <td><button class="treeButton locked" id="bup14" onclick="bup(14)">Dynamic decreases 1.00e299 times slower<br><br>30 Boosters</button></td>
           <td><button class="treeButton locked" id="bup15" onclick="bup(15)">Markup gives 666666x OP if the base is less than six<br>30 Boosters</button></td>
           <td><button class="treeButton locked" id="bup16" onclick="bup(16)" style="font-size:12pt"><b>Unlock the next layer<br>Need 324 Boosters and 22 Challenge Completions</b></button></td>
         </tr>
         <tr id="bottomBoosterUpgrades">
-          <td><button class="treeButton locked" id="bup17" onclick="bup(17)" style="display:none">You can enter challenges past 3 completions<br><text id="bup17Cost">53</text> Boosters</button></td>
+          <td><button class="treeButton locked" id="bup17" onclick="bup(17)" style="display:none">You can enter challenges past 3 completions<br><text id="bup17Cost">1e15</text></button></td>
           <td><button class="treeButton locked" id="bup18" onclick="bup(18)" style="display:none">???</button></td>
           <td><button class="treeButton locked" id="bup19" onclick="bup(19)">The above upgrade applies to passive OP gain<br>6e6 Boosters</button></td>
           <td><button class="treeButton locked" id="bup20" onclick="bup(20)">Unlock the Singularity<br>Need 1e7 Boosters and 33 Challenge Completions</button></td>
@@ -404,15 +404,15 @@ Only to find the exact same climb once more.</p>-->
         </tr>
         <tr>
           <td><button class="challenge boosterButton" onclick="enterChallenge(5)" id="challenge5">Challenge 5<br>You can do a maximum of 2 factor shifts<p></p><text id="challenge5Goal">Goal: 1.000e33 OP</text><br>Reward: Factor 5 boosts Tier 1 and 2<br>Currently: <text id="challenge5Effect">x1.00 (0/3)</text></button></td>
-          <td><button class="challenge boosterButton" onclick="enterChallenge(6)" id="challenge6" style="font-size: 9pt">Challenge 6<br>Dynamic drops by 1.00e300 per second, keep no OP on Markup, you can't buy Booster Upgrades, and you can do a maximum of 1000 manual successor clicks per Markup, Quadrupler is disabled<p></p><text id="challenge6Goal">Goal: 1.000e33 OP</text><br>Reward: Factor 6 boosts Tier 1 and 2<br>Currently: <text id="challenge6Effect">x1.00 (0/3)</text></button></td>
+          <td><button class="challenge boosterButton" onclick="enterChallenge(6)" id="challenge6" style="font-size: 9pt">Challenge 6<br>Dynamic drops by 1.00e300 per second, keep no OP on Markup, you can't buy Booster Upgrades, you can do a maximum of 1000 manual successor clicks per Markup, and Quadrupler is disabled<p></p><text id="challenge6Goal">Goal: 1.000e33 OP</text><br>Reward: Factor 6 boosts Tier 1 and 2<br>Currently: <text id="challenge6Effect">x1.00 (0/3)</text></button></td>
         </tr>
         <tr>
           <td><button class="challenge boosterButton" onclick="enterChallenge(7)" id="challenge7" style="font-size: 10pt">Challenge 7<br><b>ALL PREVIOUS CHALLENGES AT ONCE,</b> and Challenge 6 Completions boost OP gain from Markups<p></p><text id="challenge7Goal">Goal: 1.000e33 OP</text><br>Reward: Factor 7 boosts Tier 1 and 2<br>Currently: <text id="challenge7Effect">x1.00 (0/3)</text></button></td>
-          <td><button class="challenge boosterButton" onclick="enterChallenge8()" id="challenge8" style="font-size: 8pt">Challenge 8<br>There's exponentially rising decrementy dividing Tier 1 production, immediately Refund if you have any Booster Upgrades, all challenge effects are disabled, Challenge 7 completions boost OP, keep no OP on Markup, you can do a maximum of 1000 manual successor clicks per Markup, Quadrupler is disabled, ordinal is capped at w^(w3)<p></p><text id="challenge8Goal">Goal: 1.000e33 OP</text><br>Reward: Dynamic Factor Cap boosts Tier 1 and 2<text id="chal8Incrementy"> and Incrementy</text>, Currently: <text id="challenge8Effect">x1.00 (0/3)</text><text id="chal8IncrementyBoost"><br>To Incrementy: x1.00</text></button></td>
+          <td><button class="challenge boosterButton" onclick="enterChallenge8()" id="challenge8" style="font-size: 8pt">Challenge 8<br>There's exponentially rising decrementy dividing Tier 1 production, immediately Refund if you have any Booster Upgrades, all challenge effects are disabled, Challenge 7 completions boost OP, keep no OP on Markup, you can do a maximum of 1000 manual successor clicks per Markup, Quadrupler is disabled, and ordinal is capped at w^(w3)<p></p><text id="challenge8Goal">Goal: 1.000e33 OP</text><br>Reward: Dynamic Factor Cap boosts Tier 1 and 2<text id="chal8Incrementy"> and Incrementy</text>, Currently: <text id="challenge8Effect">x1.00 (0/3)</text><text id="chal8IncrementyBoost"><br>To Incrementy: x1.00</text></button></td>
         </tr> 
         </table>
         <button class="challenge boosterButton" onclick="enterChallenge9()" id="challenge9" style="width:604px;margin-left:2px;margin-top:2px">Challenge 9<br>Time is 1e15x slower, you can't enter this challenge in Omega Challenges<p></p>There is no goal</button>
-        <p><i>Note: In challenge 8, if you have less than 1.00e10 decrementy, all ticks simulates 50 milliseconds, regardless of the millisecond interval.<br>That also means that offline progression in Challenge 8 is disabled if you have less than 1.00e10 decrementy in the challenge.</i></p>
+        <p><i>Note: In challenge 8, if you have less than 1.00e20 decrementy, all ticks simulates 50 milliseconds, regardless of the millisecond interval.<br>That also means that offline progression in Challenge 8 is disabled if you have less than 1.00e10 decrementy in the challenge.</i></p>
       </div>
       <div id="bsubTab4">
         <text id="incrementyText">You have 0 incrementy, multiplying Tier 2 by 1x</text><br>
@@ -501,7 +501,7 @@ Only to find the exact same climb once more.</p>-->
       </div>
       <div id="csubTab2" style="width: 100%">
         <h1 style="text-align: center">Sluggish Milestones</h1>
-        <h4 style="font-weight:normal;text-align: center">Complete the collapse in the required amount of Factor Boosts or less to recieve a prize!<br>Each prize also starts you with an extra Booster<br></h4>
+        <h4 style="font-weight:normal;text-align: center">Complete the collapse in the required amount of Factor Boosts or less to receive a prize!<br>Each prize also starts you with an extra Booster<br></h4>
         <table id="slugTable" style="width: auto;display: block" class="long trueCenter">
           <tbody class="long trueCenter">
           <tr class="trueCenter long">

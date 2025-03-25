@@ -60,6 +60,7 @@ class SingularityFunction {
     if (this.id==51&&getSumOfChallenges()<=33.5) return false
     if (this.id==71&&getSumOfChallenges()<=35.5) return false
     if (this.id==73&&game.bestFBps<500000000) return false
+    if (this.id==81&&!game.incrementyverse) return false
     if (this.id==92&&EN(getSingLevel()).minus(game.spentENFunctions).lt(3250)) return false
     if (this.id==101&&EN(getSingLevel()).minus(game.spentENFunctions).lt(20)) return false
     if (this.id==111&&EN(getSingLevel()).minus(game.spentENFunctions).lt(600)) return false

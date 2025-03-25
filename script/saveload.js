@@ -88,7 +88,7 @@ function reset() {
   omegaChallenge: 0,
   ocBestIncrementy: [EN(0),EN(0),EN(0),EN(0),EN(0),EN(0),EN(0),EN(0),EN(0),EN(0),EN(0),EN(0)],
   challenge2: [0,0],
-  incrementyDouble: 0,
+  incrementyDouble: EN(0),
   bestFBps: 0,
   advAutoShift: 0,
   chal9: 0,
@@ -247,6 +247,9 @@ function handlePost0211Saves() {
     }
     game.version = 0.341
   }
+  if (game.version === 0.341){
+    game.version = 0.42
+  }
 }
 
 function handleOldVersions(loadgame) {
@@ -264,7 +267,7 @@ function loadGame(loadgame) {
   if (inPublicTesting()) game.publicTesting=1
   if (inPrivateTesting()) game.publicTesting=0
   if (game.publicTesting==1&&!inPublicTesting()) {
-    $.notify("Import Failed, attemped to import public testing version into the main game","error")
+    $.notify("Import Failed, attempted to import public testing version into the main game","error")
     game = JSON.parse(tempgame)
   }
   const diff = Date.now() - game.lastTick;
@@ -272,6 +275,7 @@ function loadGame(loadgame) {
   handleOldVersions(loadgame);
   game.cardinals = ENify(game.cardinals);
   game.incrementy = ENify(game.incrementy);
+  game.incrementyDouble = ENify(game.incrementyDouble);
   game.assCard[0].points = ENify(game.assCard[0].points);
   game.assCard[0].power = ENify(game.assCard[0].power);
   game.assCard[0].mult = ENify(game.assCard[0].mult);

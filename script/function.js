@@ -42,8 +42,8 @@ function getHalfAlephOmega() {
 
 function calcCard() {
   game.maxCard = EN(
-    Math.max(game.factorBoosts - 24, 1) ** calcCardExponent(game.collapseTime)
-  )
+    Math.max(game.factorBoosts - 24, 1)
+  ).pow(calcCardExponent(game.collapseTime))
     .floor()
     .max(game.maxCard);
   return game.maxCard;
@@ -178,17 +178,17 @@ function getIncrementyRate(x) {
       .times(game.ivups.includes(1)?EN(1e120).pow(game.ivups.length):1).times(x/1000)//.times(1e240)//.times(1e220)
   }
   //(getSingLevel().toNumber()-2500)*0.65+2
-  let ordRate = game.ord / 1e270;
-  if (game.ord > BHO) ordRate = (BHO / 1e270) * 3 ** (game.ord / BHO - 1);
-  return EN(
-    ((ordRate * (x/1000)))
-  ) .pow(Math.max(1,Math.min(getOCComp(6),1.1)**0.5))
-    .times((game.omegaChallenge == 2?1:double()) ** (game.iups[1].toNumber()) *
-      (game.iups[7] === 1 ? getDynamicFactorCap() : 1))
+  let ordRate = EN(game.ord / 1e270);
+  if (game.ord > BHO) ordRate = EN(BHO / 1e270).mul(EN(3).pow(game.ord / BHO - 1));
+  return EN(ordRate)
+    .pow(Math.max(1,Math.min(getOCComp(6),1.1)**0.5))
+    .times(x/1000)
+    .times(EN(game.omegaChallenge == 2?1:double()).pow(game.iups[1])
+    .times(game.iups[7] === 1 ? getDynamicFactorCap() : 1))
     .times(game.aups.includes(5) ? game.assCard[2].mult : 1)
     .times(
       game.leastBoost <= 1.5
-        ? getDynamicFactorCap() ** getChalIncrementyCurve(game.chal8Comp)
+        ? EN(getDynamicFactorCap()).pow(getChalIncrementyCurve(game.chal8Comp))
         : 1
     );
 }
@@ -264,7 +264,7 @@ function calcOPPS(fs = game.factorShifts) {
 function calcIncrementyMult(i = game.incrementy) {
   let k=ExpantaNum(i)
     .add(10)
-    .log10()
+    .logBase(10)
     .pow(ExpantaNum(1.05).pow(game.iups[0]))
     .times(ExpantaNum(EN(1.2).times(game.sfBought.includes(102)?calcSF102Effect():1)).pow(game.iups[2]))
     .times(1.2);
@@ -407,7 +407,8 @@ function getSingLevel() {
 }
 
 function getDMSacrafice() {
-  return (5 ** game.sing.dm - 1) * 250000 * (1 - game.sfBought.includes(11));
+  let s = game.sfBought.includes(23)?4:5
+  return (s ** game.sing.dm - 1) * (1000000/(s-1)) * (1 - game.sfBought.includes(11));
 }
 
 function getFBmult() {

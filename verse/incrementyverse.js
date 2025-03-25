@@ -283,9 +283,9 @@ function buyIups() {
 }
 
 function buyIupsWithAuto(ms) {
-  if (game.incrementy.gte(tenTetrTen)) {
-    return;
-  }
+  //if (game.incrementy.gte(tenTetrTen)) {
+  //  return;
+  //}
   incrementyUpgradeLoop[0] = incrementyUpgradeLoop[0].add(EN(0+game.sfBought.includes(93)).times(game.autoIncrementy[0]).times(ms/1000).times(calcAutoIncrementyMult()))
   incrementyUpgradeLoop[1] = incrementyUpgradeLoop[1].add(EN(0+game.sfBought.includes(91)).times(game.autoIncrementy[1]).times(ms/1000).times(calcAutoIncrementyMult())
                 .times(game.sfBought.includes(111)?getSingLevel().minus(game.spentENFunctions).times(0.004).add(1).pow(1+game.sfBought.includes(112)):1))
@@ -568,7 +568,7 @@ function updateFractalEngine(ms) {
     let tempown = mach.own
     if (tempown.gte(140)) tempown = tempown.div(140).pow(0.1).times(140)
     get("fractalEngineMachines").children[i].children[0].children[0].children[0].children[1].innerHTML=`
-    Automation Charge: ${beautifyEN(mach.charge)}/${beautifyEN(EN(10).pow(mach.level))}<br>+${beautify(tempown.times(getMachMult(mach.level)))}/s`
+    Automation Charge: ${beautifyEN(mach.charge)}/${beautifyEN(EN(10).pow(mach.level))}<br>+${beautifyEN(tempown.times(getMachMult(mach.level)))}/s`
   }
   get("fractalDimensionalBase").innerHTML=`Fractal Dimensional Base: ${getFractalBase()}<br>Incrementy: ${beautifyEN(game.incrementy)}
 ${(game.fractalEngine.some(mach => {return mach.own.gte(140)})?`<br><b style="color:red;">Your Fractal Engine gets slower after 140 copies (x --> 140(x/140)^(0.1))</b>`:"")}`
@@ -665,7 +665,7 @@ function fractalShift() {
 }
 
 function getFractalBase() {
-  let x=100000-game.fractalShift
+  let x=Math.max(2,100000-game.fractalShift)
   if (isNaN(x)||typeof x != "number"||x == null) return 100000
   return x
 }

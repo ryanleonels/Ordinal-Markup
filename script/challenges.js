@@ -112,7 +112,7 @@ function exitOC() {
   game.factorBoosts = 0
   game.omegaChallenge = 0
   game.challenge2 = [0,0]
-  game.iups[1]=game.incrementyDouble
+  game.iups[1]=EN(game.incrementyDouble)
   }
 }
 

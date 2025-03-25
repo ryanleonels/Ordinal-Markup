@@ -125,7 +125,7 @@ function collapse(manmade = 0) {
     if (anim === 300) {
       game.collapseUnlock = 1;
       game.upgrades = [4, 8, 12, 16];
-      let k = EN(Math.max(game.factorBoosts - 24, 2) ** 0.5).floor()
+      let k = EN(Math.max(game.factorBoosts - 24, 1) ** calcCardExponent(game.collapseTime)).floor()
       if (k.gte(game.mostCardOnce)) game.mostCardOnce = k;
       game.cardinals = game.cardinals.add(k);
       if (game.leastBoost >= game.factorBoosts) game.leastBoost = game.factorBoosts;
