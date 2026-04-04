@@ -8,7 +8,7 @@ function calcDynamic() {
 }
 
 function getChalFact() {
-  if ((!(inChal(6)||inChal(7)||inChal(8))) && (game.boostUnlock==1||game.factorShifts==7)) {
+  if ((!(inChal(6)||inChal(7))) && (game.boostUnlock==1||game.factorShifts==7)) {
     return 4
   } // render func time and html time oh sniped
   return 1
